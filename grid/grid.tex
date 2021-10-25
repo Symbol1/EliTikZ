@@ -1,0 +1,13 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+\documentclass{article}
+	\usepackage{tikz}
+\begin{document}
+	\begin{tikzpicture}
+		\foreach \x in {1, 2, 3, 4, 5}{
+			\foreach \y in {1, 2, 3, 4, 5}{
+				\fill (\x, \y) rectangle (\x + 0.8, \y + 0.8) ;
+			}
+		}
+	\end{tikzpicture}
+\end{document}

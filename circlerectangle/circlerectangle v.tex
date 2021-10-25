@@ -1,0 +1,36 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+
+\documentclass{article}
+	\usepackage{tikz}
+	\usepackage{listings}
+\begin{document}
+
+	\begin{tikzpicture}
+		\fill [teal] (2,0) rectangle (4,2)
+		             (4,0) rectangle (6,-3);
+		\draw [violet] (1,0) circle[radius=1]
+		               (2,0) circle[radius=2]
+		               (3,0) circle[radius=3];
+	\end{tikzpicture}
+
+
+\lstset{language=[latex]tex,tabsize=4}
+\lstset{moretexcs={draw,filldraw}}
+\begin{lstlisting}
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+\documentclass{article}
+	\usepackage{tikz}
+\begin{document}
+	\begin{tikzpicture}
+		\fill [teal] (2,0) rectangle (4,2)
+		             (4,0) rectangle (6,-3);
+		\draw [violet] (1,0) circle[radius=1]
+		               (2,0) circle[radius=2]
+		               (3,0) circle[radius=3];
+	\end{tikzpicture}
+\end{document}
+\end{lstlisting}
+
+\end{document}

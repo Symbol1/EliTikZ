@@ -1,0 +1,13 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+\documentclass{article}
+	\usepackage{tikz}
+\begin{document}
+	\begin{tikzpicture}
+		\fill (0, 0) rectangle (7, 7) ;
+		\foreach \z in {0, 1, 2, 3, 4, 5, 6, 7}{
+			\draw [white, line width = 2mm] (\z, 0) -- (\z, 7) ;
+			\draw [white, line width = 2mm] (0, \z) -- (7, \z) ;
+		}
+	\end{tikzpicture}
+\end{document}

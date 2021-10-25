@@ -1,0 +1,49 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+
+\documentclass[tikz,border=9]{standalone}
+\begin{document}
+	\makeatletter
+	\pgfmathsetseed{20211024}
+	\foreach\c in{0,...,9}{
+		\xglobal\definecolor{\c}{HTML}{\c\c\c\c\c\c}
+	}
+	\def\niter{500}
+	\def\chalk#1;{
+		\path[save path=\chalkstroke]#1;
+		\foreach\i in{1,...,\niter}{
+			\pgfmathtruncatemacro\c{mod(\i,10)}
+			\pgfmathsetmacro\w{5.1-5*\i/\niter)}
+			\pgfmathsetmacro\o{10+50*rnd}
+			\pgfmathsetmacro\p{10000*rnd}
+			\pgfmathsetmacro\theta{mod(\i*22.2,36)*10}
+			\pgfmathsetmacro\r{(20-\w)}
+			\pgfsetstrokecolor{\c}
+			\pgfsetlinewidth{\w}
+			\pgfsetdash{{1}{\o}}{\p}
+			\pgflowlevelobj{
+				\pgftransformshift{\pgfpointpolar{\theta}{\r}}
+			}{
+				\pgfsyssoftpath@setcurrentpath\chalkstroke\pgfusepath{stroke}
+			}
+		}
+	}
+	\begin{tikzpicture}
+		\fill circle(10);
+		\begin{scope}[shift={(-8,-4)}]%T
+			\chalk(0,8)--(6,8);
+			\chalk(3,8)--(3,0);
+		\end{scope}
+		\begin{scope}[shift={(-2,-4)}]%i
+			\chalk(0,5)--(0,0);
+		\end{scope}
+		\begin{scope}[shift={(-1,-4)}]%\emph{k}
+			\chalk(2,8)to[bend left=5](0,0);
+			\chalk(4,5)to[bend left=15](1,3)to[bend right=10](3,0);
+		\end{scope}
+		\begin{scope}[shift={(3,-4)}]%Z
+			\chalk(0,8)--(5,8)--(0,0)--(5,0);
+		\end{scope}
+	\end{tikzpicture}
+
+\end{document}

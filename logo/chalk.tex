@@ -1,0 +1,58 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+
+\documentclass[tikz,border=9]{standalone}
+	\usetikzlibrary{decorations.pathreplacing}
+\begin{document}
+	\makeatletter
+	\pgfmathsetseed{20210830}
+	\definecolor{c0}{HTML}{FFFFFF}
+	\definecolor{c1}{HTML}{EEEEEE}
+	\definecolor{c2}{HTML}{CCCCCC}
+	\definecolor{c3}{HTML}{777777}
+	\definecolor{c4}{HTML}{000000}
+	
+	\def\niter{500}
+	\def\chalk#1;{
+		\path[save path=\chalkstroke]#1;
+		\foreach\i in{1,...,\niter}{
+			\pgfmathtruncatemacro\c{mod(\i,5)}
+			\pgfmathsetmacro\w{5-4*\i/\niter)}
+			\pgfmathsetmacro\o{10+100*rnd}
+			\pgfmathsetmacro\p{500*rnd}
+			\pgfmathsetmacro\a{mod(\i*22.2,36)*10}
+			\pgfmathsetmacro\s{(20-\w)*rnd}
+			\ifodd\i
+				\pgfsetroundcap
+			\else
+				\pgfsetrectcap
+			\fi
+			\pgfsetstrokecolor{c\c}
+			\pgfsetlinewidth{\w}
+			\pgfsetdash{{0}{\o}}{\p}
+			\pgflowlevelobj{
+				\pgftransformshift{\pgfpointpolar{\a}{\s}}
+			}{
+				\pgfsyssoftpath@setcurrentpath\chalkstroke\pgfusepath{stroke}
+			}
+		}
+	}
+	\begin{tikzpicture}%[blend mode=difference]
+		\fill circle(10);
+		\begin{scope}[shift={(-8,-4)}]
+			\chalk(0,8)--(6,8);
+			\chalk(3,8)--(3,0);
+		\end{scope}
+		\begin{scope}[shift={(-2,-4)}]
+			\chalk(0,5)--(0,0);
+		\end{scope}
+		\begin{scope}[shift={(-1,-4)}]
+			\chalk(2,8)to[bend left=5](0,0);
+			\chalk(4,5)to[bend left=15](1,3)to[bend right=10](3,0);
+		\end{scope}
+		\begin{scope}[shift={(3,-4)}]
+			\chalk(0,8)--(5,8)--(0,0)--(5,0);
+		\end{scope}
+	\end{tikzpicture}
+
+\end{document}

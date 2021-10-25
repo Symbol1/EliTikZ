@@ -1,0 +1,20 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+\documentclass{article}
+	\usepackage{tikz}
+\begin{document}
+	\begin{tikzpicture}
+		\fill [red] (0, 0) circle [radius = 3];
+		\fill [white] (0, 0) circle [radius = 2];
+		\fill [red] (0, 0) circle [radius = 1];
+		
+		\fill [purple, even odd rule] (7, 0)
+			circle [radius = 3] circle [radius = 2] circle [radius = 1];
+		
+		\draw [pink, line width = 1cm]
+			(0, 7) circle [radius = 0.5] circle [radius = 2.5];
+		
+		\draw [orange, line width = 1cm, double, double distance = 1cm]
+			(7, 7) circle [radius = 1.5];
+	\end{tikzpicture}
+\end{document}

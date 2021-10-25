@@ -1,0 +1,42 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = xelatex
+
+\documentclass{article}
+	\usepackage{fontspec}
+	\setmainfont{SourceCodePro-Regular}
+	\usepackage{tikz}
+	\usepackage{listings}
+\begin{document}
+
+	\begin{tikzpicture}
+		\draw (0, 0) rectangle (1, 1);
+		\draw [shift = {(1, 1)}] (0, 0) rectangle (1, 1);
+		\draw [shift = {(2, 0)}] (0, 0) rectangle (1, 1);
+		\node at (1.5, -0.5) [scale = 2] {Elite};
+	\end{tikzpicture}
+
+\lstset{language=[latex]tex,tabsize=4}
+\lstset{moretexcs={draw}}
+
+
+
+%%%%%%%%%%%%%%%%%%
+\begin{lstlisting}
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+\documentclass{article}
+	\usepackage{tikz}
+\begin{document}
+	\begin{tikzpicture}
+		\draw (0, 0) rectangle (1, 1);
+		\draw [shift = {(1, 1)}] (0, 0) rectangle (1, 1);
+		\draw [shift = {(2, 0)}] (0, 0) rectangle (1, 1);
+		\node at (1.5, -0.5) [scale = 2] {Elite};
+	\end{tikzpicture}
+\end{document}
+\end{lstlisting}
+%%%%%%%%%%%%%%%%
+
+
+
+\end{document}

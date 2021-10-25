@@ -1,0 +1,11 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+\documentclass{article}
+	\usepackage{tikz}
+\begin{document}
+	\begin{tikzpicture}
+		\foreach \y in {1, 2, 3, 4, 5, 6}{
+			\node at (0, \y) {node at $y = \y$};
+		}
+	\end{tikzpicture}
+\end{document}

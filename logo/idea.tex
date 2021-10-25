@@ -1,0 +1,15 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+
+\documentclass[tikz,border=9]{standalone}
+
+\begin{document}
+	\begin{tikzpicture}
+		\foreach \theta in {0, 30, ..., 359.9}{
+			\pgfmathsetmacro\hue{\theta/360}
+			\definecolor{bulb}{hsb}{\hue, 1, 1}
+			\fill [rotate = \theta, shift = {(0, 13)}, bulb]
+				(0, 0) circle (3) (-1, -2) rectangle (1, -5) ;
+		}
+	\end{tikzpicture}
+\end{document}
