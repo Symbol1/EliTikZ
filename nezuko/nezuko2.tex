@@ -1,0 +1,41 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = pdflatex
+\documentclass{article}
+	\usepackage{tikz}
+		\usepackage{tikz-3dplot}
+\begin{document}
+	\makeatletter
+	\let\oldpointxyz\pgfpointxyz
+	\def\pgfpointxyz#1#2#3{
+		\oldpointxyz{#1-\camerax}{#2-\cameray}{#3-\cameraz}%%% (x,y,z) is camera center
+		\pgfmathsetmacro\depth{\rcarot*\pgftemp@x+\rcbrot*\pgftemp@y+\rccrot*\pgftemp@z}
+		\pgfmathsetlength\pgf@x{\pgf@x*\cameras/(\camerad-\depth)}%%% camera scale and
+		\pgfmathsetlength\pgf@y{\pgf@y*\cameras/(\camerad-\depth)}%%% camera distance
+	}
+	\makeatother
+	\tdplotsetmaincoords{90 - 23.5}{120}
+	\begin{tikzpicture}[tdplot_main_coords]
+		\def\h{16}
+		\def\w{10}
+		\def\camerax{5}% 照片中心座標
+		\def\cameray{5}% 照片中心座標
+		\def\cameraz{8}% 照片中心座標
+		\def\camerad{30}% 相機距離
+		\def\cameras{15}% 相機倍率
+		\fill [brown!90!black] % 上蓋
+			(0, 0, \h) -- (\w, 0, \h) -- (\w, \w, \h) -- (0, \w, \h) ;
+		\fill [brown!70!black] % 左板
+			(\w, 0, 0) --(\w, \w, 0) --(\w, \w, \h) --(\w, 0, \h) ;
+		\fill [brown!50!black] % 右板
+			(0, \w, 0) --(\w, \w, 0) --(\w, \w, \h) --(0, \w, \h) ;
+		\fill [black] % 黑帶
+			(\w, 0, \h*9/11) -- (\w, \w, \h*9/11) -- (0, \w, \h*9/11) --
+			(0, \w, \h*8/11) -- (\w, \w, \h*8/11) -- (\w, 0, \h*8/11) ;
+		\fill [black] % 黑帶
+			(\w, 0, \h*6/11) -- (\w, \w, \h*6/11) -- (0, \w, \h*6/11) --
+			(0, \w, \h*5/11) -- (\w, \w, \h*5/11) -- (\w, 0, \h*5/11) ;
+		\fill [black] % 黑帶
+			(\w, 0, \h*3/11) -- (\w, \w, \h*3/11) -- (0, \w, \h*3/11) --
+			(0, \w, \h*2/11) -- (\w, \w, \h*2/11) -- (\w, 0, \h*2/11) ;
+	\end{tikzpicture}
+\end{document}

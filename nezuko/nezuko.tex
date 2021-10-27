@@ -1,0 +1,26 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = pdflatex
+\documentclass{article}
+	\usepackage{tikz}
+	\usetikzlibrary{perspective}
+\begin{document}
+	\begin{tikzpicture}[3d view = {120}{23.5}]
+		\def\h{8}
+		\def\w{5}
+		\fill [brown!90!black] % 上蓋
+			(0, 0, \h) -- (\w, 0, \h) -- (\w, \w, \h) -- (0, \w, \h) ;
+		\fill [brown!70!black] % 左板
+			(\w, 0, 0) --(\w, \w, 0) --(\w, \w, \h) --(\w, 0, \h) ;
+		\fill [brown!50!black] % 右板
+			(0, \w, 0) --(\w, \w, 0) --(\w, \w, \h) --(0, \w, \h) ;
+		\fill [black] % 黑帶
+			(\w, 0, \h*9/11) -- (\w, \w, \h*9/11) -- (0, \w, \h*9/11) --
+			(0, \w, \h*8/11) -- (\w, \w, \h*8/11) -- (\w, 0, \h*8/11) ;
+		\fill [black] % 黑帶
+			(\w, 0, \h*6/11) -- (\w, \w, \h*6/11) -- (0, \w, \h*6/11) --
+			(0, \w, \h*5/11) -- (\w, \w, \h*5/11) -- (\w, 0, \h*5/11) ;
+		\fill [black] % 黑帶
+			(\w, 0, \h*3/11) -- (\w, \w, \h*3/11) -- (0, \w, \h*3/11) --
+			(0, \w, \h*2/11) -- (\w, \w, \h*2/11) -- (\w, 0, \h*2/11) ;
+	\end{tikzpicture}
+\end{document}
