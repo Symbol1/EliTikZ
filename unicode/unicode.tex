@@ -1,0 +1,39 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = pdflatex
+
+\makeatletter\def\UTFActivateAndDef{\bgroup\def\UTFviii@defined##1{
+\egroup\def##1}}\UTFActivateAndDef定{\UTFActivateAndDef}\makeatother
+
+\documentclass{article}
+
+\usepackage{mathtools,amssymb}
+	定∞{\infty}% option + 5
+	定➡️{\to}% 表情符號輸入法
+	定（{\Big(}% 全形左括號（中文輸入法）
+	定）{\Big)}% 全形左括號（中文輸入法）
+	定÷{\frac}% option + /
+	定≤{\leqslant}% option + ,
+	定∑{\sum}% option + w
+	定∈{\in}
+	定ℝ{\mathbb R}
+	定⊆{\subseteq}
+	定ℂ{\mathbb C}
+	定θ{\theta}% 希臘文輸入法
+	定√{\sqrt}% option + v
+	定≅{\cong}
+	定矩{\begin{bmatrix}}% 中文輸入法
+	定陣{\end{bmatrix}}% 中文輸入法
+	定∇{\nabla}
+	定≔{\coloneqq}
+	定∂#1{\frac\partial{\partial x_#1}}% option + d
+	定⋯{\cdots}
+
+\begin{document}
+
+	\[ \lim_{n ➡️ ∞} （ 1 + ÷1n ）^n ≤ ∑_{n=0} ^ ∞ ÷1{n!} ∈ ℝ ⊆ ℂ \]
+	
+	\[ \exp( θ √{-1} ) ≅ 矩 \cosθ  & -\sinθ \\ \sinθ & \cosθ 陣 \]
+	
+	\[ ∇ ≔ ∂1 + ∂2 + ⋯ + ∂n \]
+
+\end{document}
