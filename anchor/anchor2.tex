@@ -1,0 +1,18 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = xelatex
+\documentclass{article}
+	\usepackage{tikz}
+	\usepackage{fontspec}
+		\setmainfont{NotoSansTC-Regular}
+\begin{document}
+	\begin{tikzpicture}
+		\path (0, 0) node (Dog)
+			[scale = 5, draw=orange, dotted, text=purple, align = center]
+				{Dog 在 \\ 府中泣};
+		\foreach \theta in {10, 20, ..., 360}{
+			\draw (Dog.\theta) -- +(\theta: 1)
+				node [rotate = \theta - 30, above right]
+				{$\Theta = \theta$};
+		}
+	\end{tikzpicture}
+\end{document}

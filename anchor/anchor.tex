@@ -1,0 +1,23 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = xelatex
+\documentclass{article}
+	\usepackage{tikz}
+	\usepackage{fontspec}
+		\setmainfont{NotoSansTC-Regular}
+\begin{document}
+	\begin{tikzpicture}
+		\path (0, 0) node (Doge)
+			[scale = 5, draw=orange, dotted, text=purple]
+				{煮豆燃 Doge};
+		\draw (Doge.north)      circle(1pt) node[above] {北};
+		\draw (Doge.north east) circle(1pt) node[above right] {東北};
+		\draw (Doge.east)       circle(1pt) node[right] {東};
+		\draw (Doge.south east) circle(1pt) node[below right] {東南};
+		\draw (Doge.south)      circle(1pt) node[below] {南};
+		\draw (Doge.south west) circle(1pt) node[below left] {西南};
+		\draw (Doge.west)       circle(1pt) node[left] {西};
+		\draw (Doge.north west) circle(1pt) node[above left] {西北};
+		\draw (Doge.center)     circle(1pt)
+			-- ++(4, 3) -- ++(1, 0) [teal] node[right] {中心};
+	\end{tikzpicture}
+\end{document}

@@ -1,0 +1,67 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = xelatex
+
+\documentclass{article}
+	\usepackage[margin=1in]{geometry}
+	\usepackage{xeCJK}
+		\setmainfont{SourceCodePro-Regular}
+		\setCJKmainfont{NotoSansTC-Regular}
+	\usepackage{tikz}
+	\usepackage{listings}
+\begin{document}
+
+
+
+	\begin{tikzpicture}
+		\path (0, 0) node (Dog)
+			[scale = 5, draw=orange, dotted, text=purple, align = center]
+				{Dog 在 \\ 府中泣};
+		\foreach \theta in {10, 20, ..., 360}{
+			\draw (Dog.\theta) -- +(\theta: 1)
+				node [rotate = \theta - 30, above right]
+				{$\Theta = \theta$};
+		}
+	\end{tikzpicture}
+
+
+
+\lstset{
+	language=[latex]tex,tabsize=4,
+	moredelim=*[s][\itshape]{$}{$},
+	moredelim=*[s][\color{red!40!.}]{(}{)},
+	moredelim=*[s][\color{green!30!.}]{[}{]},
+	backgroundcolor=\color{blue!5},
+	commentstyle=\color{.!80}\itshape,
+	texcsstyle=*\color{blue!40!.},
+	moretexcs={
+		setmainfont,
+		draw,path,foreach
+	},
+	deletetexcs={},
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = xelatex
+\documentclass{article}
+	\usepackage{tikz}
+	\usepackage{fontspec}
+		\setmainfont{NotoSansTC-Regular}
+\begin{document}
+	\begin{tikzpicture}
+		\path (0, 0) node (Dog)
+			[scale = 5, draw=orange, dotted, text=purple, align = center]
+				{Dog 在 \\ 府中泣};
+		\foreach \theta in {10, 20, ..., 360}{
+			\draw (Dog.\theta) -- +(\theta: 1)
+				node [rotate = \theta - 30, above right]
+				{$\Theta = \theta$};
+		}
+	\end{tikzpicture}
+\end{document}
+
+\end{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
