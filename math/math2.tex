@@ -1,0 +1,27 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = pdflatex
+\documentclass{article}
+	\usepackage{tikz}
+\begin{document}
+	\begin{tikzpicture}
+		\draw[->] (-4, 0) -- (6, 0) node[below]{$x$ axis};
+		\draw[->] (0, -2) -- (0, 8) node[above]{$y$ axis};
+		\def\p{-14}
+		\def\q{-17}
+		\draw plot[variable = \t, domain = -4:6, samples = 100]
+			({\t}, {((\t)^3 + \p*\t + \q)/20});
+		\pgfmathsetmacro\inacos{3*\q*sqrt(-3/\p)/2/\p}
+		\pgfmathsetmacro\acos{acos(\inacos)}
+		\pgfmathsetmacro\radi{2*sqrt(-\p/3)}
+		\pgfmathsetmacro\incosi{\acos/3-120}
+		\pgfmathsetmacro\incosii{\acos/3-240}
+		\pgfmathsetmacro\incosiii{\acos/3-360}
+		\pgfmathsetmacro\rooti{\radi*cos(\incosi)}
+		\pgfmathsetmacro\rootii{\radi*cos(\incosii)}
+		\pgfmathsetmacro\rootiii{\radi*cos(\incosiii)}
+		\draw [teal] (0, 5) circle(\radi);
+		\draw [teal] (0, 5) -- +(\incosi:\radi) -- (\rooti, 0);
+		\draw [teal] (0, 5) -- +(\incosii:\radi) -- (\rootii, 0);
+		\draw [teal] (0, 5) -- +(\incosiii:\radi) -- (\rootiii, 0);
+	\end{tikzpicture}
+\end{document}
