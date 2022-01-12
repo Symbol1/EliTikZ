@@ -1,0 +1,59 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = xelatex
+
+\documentclass{article}
+	\usepackage[margin=1.5in]{geometry}
+	\usepackage{fontspec}
+	\usepackage{tikz}
+	\usepackage{listings}
+\begin{document}
+
+
+
+	\begin{tikzpicture}
+		\fill [color = {rgb, 1: red, .40; green, .12; blue, .16}]
+			(2, 0) rectangle +(1, 2);
+		\fill [color = {rgb, 255: red, 102; green, 30; blue, 42}]
+			(4, 0) rectangle +(1, 2);
+		\fill [color = {rgb, "FF: red, "66; green, "1E; blue, "2A}]
+			(6, 0) rectangle +(1, 2);
+	\end{tikzpicture}
+
+
+
+\fontspec{SourceCodePro-Regular}
+\lstset{
+	language=[latex]tex,tabsize=4,
+	moredelim=*[s][\itshape]{$}{$},
+	moredelim=*[s][\color{red!40!.}]{(}{)},
+	moredelim=*[s][\color{green!30!.}]{[}{]},
+	backgroundcolor=\color{blue!5},
+	commentstyle=\color{.!80}\itshape,
+	texcsstyle=*\color{blue!40!.},
+	moretexcs={},
+	deletetexcs={},
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+\documentclass{article}
+	\usepackage{tikz}
+\begin{document}
+	\begin{tikzpicture}
+		\fill [color = {rgb, 1: red, .40; green, .12; blue, .16}]
+			(2, 0) rectangle +(1, 2);
+		\fill [color = {rgb, 255: red, 102; green, 30; blue, 42}]
+			(4, 0) rectangle +(1, 2);
+		\fill [color = {rgb, "FF: red, "66; green, "1E; blue, "2A}]
+			(6, 0) rectangle +(1, 2);
+	\end{tikzpicture}
+\end{document}
+
+\end{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\end{document}
