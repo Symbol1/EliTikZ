@@ -1,44 +1,65 @@
 % !TEX encoding = UTF-8 Unicode
-% !TEX TS-program = xelatex
+% !TEX program = xelatex
 
 \documentclass{article}
-	\usepackage[cm]{fullpage}
-	\usepackage{fontspec}
-	\setmainfont{SourceCodePro-Regular}
+	\usepackage[margin = 1.25in]{geometry}
 	\usepackage{tikz}
 	\usepackage{listings}
+	\usepackage{fontspec}
 \begin{document}
 
-	\begin{tikzpicture}[line width = 1pt]
-		\draw [red, dotted] (0,0) -- (1,0) -- (1,1) -- (0,0);
-		\draw [blue, dashed] (2,0) -- (3,0) -- (3,2) -- (2,0);
+
+
+	\begin{tikzpicture} [line width = 1pt]
+		\draw [red, dotted] (0, 0) -- (1, 0) -- (1, 1) -- (0, 0);
+		\draw [blue, dashed] (2, 0) -- (3, 0) -- (3, 2) -- (2, 0);
 		\draw [violet, dash pattern = on 1pt off 2pt on 3pt off 2pt]
-			(3,0) circle[radius = 3];
-		\newcommand\thintriangle{(4,0) -- (5,0) -- (5,3) -- (4,0)}
-		\draw [green, dash pattern = on 1pt off 3pt, dash phase = 1pt] \thintriangle;
-		\draw [brown, dash pattern = on 1pt off 3pt, dash phase = 3pt] \thintriangle;
+				(3, 0) circle [radius = 3];
+		\newcommand\thintriangle{(4, 0) -- (5, 0) -- (5, 3) -- (4, 0)}
+		\draw [green, dash pattern = on 1pt off 3pt,
+				dash phase = 1pt] \thintriangle;
+		\draw [brown, dash pattern = on 1pt off 3pt,
+				dash phase = 3pt] \thintriangle;
 	\end{tikzpicture}
 
-\lstset{language=[latex]tex,tabsize=4}
-\lstset{moretexcs={draw}}
-\begin{lstlisting}
+
+
+\fontspec{SourceCodePro-Regular}
+\lstset{
+	language=[latex]tex,tabsize=4,
+	moredelim=*[s][\itshape]{$}{$},
+	moredelim=*[s][\color{red!40!.}]{(}{)},
+	moredelim=*[s][\color{green!30!.}]{[}{]},
+	backgroundcolor=\color{blue!5},
+	commentstyle=\color{.!80}\itshape,
+	texcsstyle=*\color{blue!40!.},
+	moretexcs={
+		draw
+	},
+	deletetexcs={},
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % !TEX encoding = UTF-8 Unicode
-% !TEX TS-program = pdflatex
+% !TEX program = pdflatex
 \documentclass{article}
 	\usepackage{tikz}
 \begin{document}
-	\begin{tikzpicture}[line width = 1pt]
-		\draw [red, dotted] (0,0) -- (1,0) -- (1,1) -- (0,0);
-		\draw [blue, dashed] (2,0) -- (3,0) -- (3,2) -- (2,0);
+	\begin{tikzpicture} [line width = 1pt]
+		\draw [red, dotted] (0, 0) -- (1, 0) -- (1, 1) -- (0, 0);
+		\draw [blue, dashed] (2, 0) -- (3, 0) -- (3, 2) -- (2, 0);
 		\draw [violet, dash pattern = on 1pt off 2pt on 3pt off 2pt]
-				(3,0) circle[radius = 3];
-		\newcommand\thintriangle{(4,0) -- (5,0) -- (5,3) -- (4,0)}
+				(3, 0) circle [radius = 3];
+		\newcommand\thintriangle{(4, 0) -- (5, 0) -- (5, 3) -- (4, 0)}
 		\draw [green, dash pattern = on 1pt off 3pt,
 				dash phase = 1pt] \thintriangle;
 		\draw [brown, dash pattern = on 1pt off 3pt,
 				dash phase = 3pt] \thintriangle;
 	\end{tikzpicture}
 \end{document}
-\end{lstlisting}
+
+\end{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}

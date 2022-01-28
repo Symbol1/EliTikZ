@@ -1,26 +1,49 @@
 % !TEX encoding = UTF-8 Unicode
-% !TEX TS-program = pdflatex
+% !TEX program = xelatex
 
 \documentclass{article}
+	\usepackage[margin = 2in]{geometry}
 	\usepackage{tikz}
 	\usepackage{listings}
+	\usepackage{fontspec}
 \begin{document}
 
+
+
 	\begin{tikzpicture}
-		\draw(0,0)--(1,0)--(1,1)--(0,0);
+		\draw(0, 0) -- (1, 0) -- (1, 1) -- (0, 0);
 	\end{tikzpicture}
 
-\lstset{language=[latex]tex,tabsize=4}
-\begin{lstlisting}
+
+
+\fontspec{SourceCodePro-Regular}
+\lstset{
+	language=[latex]tex,tabsize=4,
+	moredelim=*[s][\itshape]{$}{$},
+	moredelim=*[s][\color{red!40!.}]{(}{)},
+	moredelim=*[s][\color{green!30!.}]{[}{]},
+	backgroundcolor=\color{blue!5},
+	commentstyle=\color{.!80}\itshape,
+	texcsstyle=*\color{blue!40!.},
+	moretexcs={
+		draw,pgfmathsetmacro
+	},
+	deletetexcs={},
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % !TEX encoding = UTF-8 Unicode
-% !TEX TS-program = pdflatex
+% !TEX program = pdflatex
 \documentclass{article}
 	\usepackage{tikz}
 \begin{document}
 	\begin{tikzpicture}
-		\draw(0,0)--(1,0)--(1,1)--(0,0);
+		\draw(0, 0) -- (1, 0) -- (1, 1) -- (0, 0);
 	\end{tikzpicture}
 \end{document}
-\end{lstlisting}
+
+\end{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
