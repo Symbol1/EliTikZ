@@ -9,7 +9,8 @@
 \begin{document}
 
 
-	\begin{tikzpicture}[scale=1/2,every node/.style={scale = 4}]
+
+	\begin{tikzpicture}[scale = 1/2,every node/.style = {scale = 4}]
 		\draw (0, 0) rectangle node {$5^2$} (-5, -5) ;
 		\draw (0, -5) rectangle node {$5^2$} (5, -10) ;
 		\draw (0, 0) coordinate (orig) ;
@@ -22,6 +23,8 @@
 		\draw [rotate = -45 + \gamma + \delta]
 			(0, 0) rectangle node {$111$} ({sqrt(110)}, {sqrt(110)}) ;
 	\end{tikzpicture}
+
+
 
 \fontspec{SourceCodePro-Regular}
 \lstset{
@@ -45,7 +48,7 @@
 \documentclass{article}
 	\usepackage{tikz}
 \begin{document}
-	\begin{tikzpicture}[scale=1/2,every node/.style={scale = 4}]
+	\begin{tikzpicture}[scale = 1/2,every node/.style = {scale = 4}]
 		\draw (0, 0) rectangle node {$5^2$} (-5, -5) ;
 		\draw (0, -5) rectangle node {$5^2$} (5, -10) ;
 		\draw (0, 0) coordinate (orig) ;

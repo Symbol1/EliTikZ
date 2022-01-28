@@ -3,18 +3,18 @@
 
 \documentclass{article}
 	\usepackage[margin=1in]{geometry}
+	\usepackage{tikz}
+	\usepackage{listings}
 	\usepackage{xeCJK}
 		\setmainfont{SourceCodePro-Regular}
 		\setCJKmainfont{NotoSansTC-Regular}
-	\usepackage{tikz}
-	\usepackage{listings}
 \begin{document}
 
 
 
 	\begin{tikzpicture}
 		\path (0, 0) node (Dog)
-			[scale = 5, draw=orange, dotted, text=purple, align = center]
+			[scale = 5, draw = orange, dotted, text = purple, align = center]
 				{Dog 在 \\ 府中泣};
 		\foreach \theta in {10, 20, ..., 360}{
 			\draw (Dog.\theta) -- +(\theta: 1)
@@ -51,7 +51,7 @@
 \begin{document}
 	\begin{tikzpicture}
 		\path (0, 0) node (Dog)
-			[scale = 5, draw=orange, dotted, text=purple, align = center]
+			[scale = 5, draw = orange, dotted, text = purple, align = center]
 				{Dog 在 \\ 府中泣};
 		\foreach \theta in {10, 20, ..., 360}{
 			\draw (Dog.\theta) -- +(\theta: 1)

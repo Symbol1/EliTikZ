@@ -2,10 +2,10 @@
 % !TEX TS-program = xelatex
 
 \documentclass{article}
-\usepackage[margin=1.1in]{geometry}
-	\usepackage{fontspec}
+	\usepackage[margin=1.1in]{geometry}
 	\usepackage{tikz}
 	\usepackage{listings}
+	\usepackage{fontspec}
 \begin{document}
 
 
@@ -32,7 +32,9 @@
 	backgroundcolor=\color{blue!5},
 	commentstyle=\color{.!80}\itshape,
 	texcsstyle=*\color{blue!40!.},
-	moretexcs={foreach,pgfmathtruncatemacro}
+	moretexcs={
+		foreach,pgfmathtruncatemacro
+	}
 }
 \fontspec{SourceCodePro-Regular}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
