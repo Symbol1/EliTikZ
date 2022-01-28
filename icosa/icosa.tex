@@ -1,0 +1,32 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = pdflatex
+\documentclass[border = 1cm, tikz]{standalone}
+	\usepackage{tikz-3dplot}
+\begin{document}
+	\makeatletter\let\oldpointxyz\pgfpointxyz
+	\def\elitexyz#1#2#3{
+		\oldpointxyz{#1-\camerax}{#2-\cameray}{#3-\cameraz}%%% (x,y,z) is camera center
+		\pgfmathsetmacro\depth{\rcarot*\pgftemp@x+\rcbrot*\pgftemp@y+\rccrot*\pgftemp@z}
+		\pgfmathsetlength\pgf@x{\pgf@x*\cameras/(\camerad-\depth)}%%% camera scale and
+		\pgfmathsetlength\pgf@y{\pgf@y*\cameras/(\camerad-\depth)}%%% camera distance
+	}\makeatother
+	\tdplotsetmaincoords{90-23}{120}%視角
+	\def\camerax{0}\def\cameray{0}\def\cameraz{0}
+	\def\camerad{25}\def\cameras{10}%相機中心、距離、倍率
+	\begin{tikzpicture}[tdplot_main_coords, line join = round, line cap = round]
+		\def\drawedges#1{
+			\def\pgfpointxyz##1##2##3{\elitexyz#1}
+			\foreach\s in{+,-}{
+				\foreach\t in{+,-}{
+					\foreach\u in{+,-}{
+						\draw (\s6.1, \t9.87, 0) -- (0, \t6.1, \u9.87) ;
+					}
+				}
+				\draw (\s9.87, 0, \s6.1) -- (\s9.87, 0, -\s6.1);
+			}
+		}
+		\drawedges{{#1}{#2}{#3}}
+		\drawedges{{#2}{#3}{#1}}
+		\drawedges{{#3}{#1}{#2}}
+	\end{tikzpicture}
+\end{document}

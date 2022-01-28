@@ -1,0 +1,80 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = xelatex
+
+\documentclass{article}
+	\usepackage[margin=0.5in]{geometry}
+	\usepackage{xeCJK}
+		\setmainfont{SourceCodePro-Regular}
+		\setCJKmainfont{NotoSansTC-Regular}
+	\usepackage{tikz}
+	\usepackage{tikz-3dplot}
+	\usepackage{listings}
+\begin{document}
+
+	\let\oldpgfpointxyz=\pgfpointxyz
+	\tdplotsetmaincoords{90-23}{120}%視角
+	\begin{tikzpicture}[tdplot_main_coords, line join = round, line cap = round]
+		\def\drawedges#1{
+			\def\pgfpointxyz##1##2##3{\oldpgfpointxyz#1}
+			\foreach\s in{+,-}{
+				\foreach\t in{+,-}{
+					\foreach\u in{+,-}{
+						\draw [scale = 1/8] (\s6.1, \t9.87, 0) -- (0, \t6.1, \u9.87) ;
+					}
+				}
+				\draw [scale = 1/8] (\s9.87, 0, \s6.1) -- (\s9.87, 0, -\s6.1) ;
+			}
+		}
+		\drawedges{{#1}{#2}{#3}}
+		\drawedges{{#2}{#3}{#1}}
+		\drawedges{{#3}{#1}{#2}}
+	\end{tikzpicture}
+
+
+\lstset{
+	language=[latex]tex,tabsize=4,
+	moredelim=*[s][\itshape]{$}{$},
+	moredelim=*[s][\color{red!40!.}]{(}{)},
+	moredelim=*[s][\color{green!30!.}]{[}{]},
+	backgroundcolor=\color{blue!5},
+	commentstyle=\color{.!80}\itshape,
+	texcsstyle=*\color{blue!40!.},
+	moretexcs={
+		foreach,draw,
+		tdplotsetmaincoords,pgfpointxyz,
+		pgfmathsetmacro,pgfmathtruncatemacro,pgfmathsetlength,
+		pgf@x,pgf@y,rcarot,rcbrot,rccrot,pgftemp@x,pgftemp@y,pgftemp@z
+	},
+	deletetexcs={s,t,u},
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = pdflatex
+\documentclass[border = 1cm, tikz]{standalone}
+	\usepackage{tikz-3dplot}
+\begin{document}
+	\tdplotsetmaincoords{90-23}{120}%視角
+	\begin{tikzpicture}[tdplot_main_coords, line join = round, line cap = round]
+		\def\drawedges#1{
+			\def\pgfpointxyz##1##2##3{\elitexyz#1}
+			\foreach\s in{+,-}{
+				\foreach\t in{+,-}{
+					\foreach\u in{+,-}{
+						\draw (\s6.1, \t9.87, 0) -- (0, \t6.1, \u9.87) ;
+					}
+				}
+				\draw (\s9.87, 0, \s6.1) -- (\s9.87, 0, -\s6.1);
+			}
+		}
+		\drawedges{{#1}{#2}{#3}}
+		\drawedges{{#2}{#3}{#1}}
+		\drawedges{{#3}{#1}{#2}}
+	\end{tikzpicture}
+\end{document}
+
+\end{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
