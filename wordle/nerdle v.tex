@@ -1,0 +1,79 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = xelatex
+
+\documentclass{article}
+	\usepackage[margin = 0.9in]{geometry}
+	\usepackage{fontspec}
+		\setmainfont{ClearSans-Bold}
+	\usepackage{tikz-cd}
+		\definecolor{correct}{HTML}{398874}
+		\definecolor{present}{HTML}{820D58}
+		\definecolor{absent}{HTML}{989484}
+	\usepackage{listings}
+\begin{document}
+
+	\LARGE
+	\tikzset{
+		nodes = {
+			minimum size = 3em, inner sep = 0,
+			rounded corners = 2.5, text = white, font = \strut
+		},
+		2/.style = {fill = correct},
+		1/.style = {fill = present},
+		0/.style = {fill = absent},
+	}
+	\begin{tikzcd}[math mode=false, column sep = 0.2em, row sep = 0.16em]
+		|[0]|1 & |[2]|0 & |[0]|8 & |[0]|/ & |[1]|4 & |[1]|= & |[2]|2 & |[1]|7 \\
+		|[0]|- & |[1]|6 & |[0]|+ & |[0]|3 & |[1]|* & |[0]|5 & |[1]|= & |[0]|9 \\
+	\end{tikzcd}
+	\normalsize
+
+
+\fontspec{SourceCodePro-Regular}
+\lstset{
+	language=[latex]tex,tabsize=4,
+	moredelim=*[s][\itshape]{$}{$},
+	moredelim=*[s][\color{red!40!.}]{(}{)},
+	moredelim=*[s][\color{green!30!.}]{[}{]},
+	backgroundcolor=\color{blue!5},
+	commentstyle=\color{.!80}\itshape,
+	texcsstyle=*\color{blue!40!.},
+	moretexcs={
+		setmathfont,
+		tikzset,
+		definecolor,
+	},
+	deletetexcs={},
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = xelatex
+\documentclass{article}
+	\usepackage{fontspec}
+		\setmainfont{ClearSans-Bold}
+	\usepackage{tikz-cd}
+		\definecolor{correct}{HTML}{398874}
+		\definecolor{present}{HTML}{820D58}
+		\definecolor{absent}{HTML}{989484}
+\begin{document}
+	\tikzset{
+		nodes = {
+			minimum size = 3em, inner sep = 0,
+			rounded corners = 2.5, text = white, font = \strut
+		},
+		2/.style = {fill = correct},
+		1/.style = {fill = present},
+		0/.style = {fill = absent},
+	}
+	\begin{tikzcd}[math mode=false, column sep = 0.2em, row sep = 0.16em]
+		|[0]|1 & |[2]|0 & |[0]|8 & |[0]|/ & |[1]|4 & |[1]|= & |[2]|2 & |[1]|7 \\
+		|[0]|- & |[1]|6 & |[0]|+ & |[0]|3 & |[1]|* & |[0]|5 & |[1]|= & |[0]|9 \\
+	\end{tikzcd}
+\end{document}
+
+\end{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

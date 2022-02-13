@@ -1,0 +1,43 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = xelatex
+
+\documentclass{article}
+	\usepackage[margin = 1.75in]{geometry}
+	\usepackage{tikz}
+	\usepackage{listings}
+	\usepackage{fontspec}
+\begin{document}
+
+	\includegraphics[width=\textwidth]{/usr/local/texlive/2021/%
+		texmf-dist/doc/generic/pstricks/images/tiger}
+
+\fontspec{SourceCodePro-Regular}
+\lstset{
+	language=[latex]tex,tabsize=4,
+	moredelim=*[s][\itshape]{$}{$},
+	moredelim=*[s][\color{red!40!.}]{(}{)},
+	moredelim=*[s][\color{green!30!.}]{[}{]},
+	backgroundcolor=\color{blue!5},
+	commentstyle=\color{.!80}\itshape,
+	texcsstyle=*\color{blue!40!.},
+	moretexcs={
+		includegraphics
+	},
+	deletetexcs={},
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = pdflatex
+\documentclass{article}
+	\usepackage{graphicx}
+\begin{document}
+	\includegraphics[width=\textwidth]{/usr/local/texlive/%
+		2021/texmf-dist/doc/generic/pstricks/images/tiger}
+\end{document}
+
+\end{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
