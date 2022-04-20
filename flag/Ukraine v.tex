@@ -1,0 +1,55 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = xelatex
+
+\documentclass{article}
+	\usepackage[margin=1.5in]{geometry}
+	\usepackage{tikz}
+	\usepackage{listings}
+	\usepackage{fontspec}
+\begin{document}
+
+
+
+	\definecolor{Strong azure}{HTML}{0057b7}
+	\definecolor{Yellow}{HTML}{ffd700}
+	\begin{tikzpicture}
+		\fill [color = Strong azure] (0, 1) rectangle (3, 2);
+		\fill [color = Yellow] (0, 0) rectangle (3, 1);
+	\end{tikzpicture}
+
+
+
+\fontspec{SourceCodePro-Regular}
+\lstset{
+	language=[latex]tex,tabsize=4,
+	moredelim=*[s][\itshape]{$}{$},
+	moredelim=*[s][\color{red!40!.}]{(}{)},
+	moredelim=*[s][\color{green!30!.}]{[}{]},
+	backgroundcolor=\color{blue!5},
+	commentstyle=\color{.!80}\itshape,
+	texcsstyle=*\color{blue!40!.},
+	moretexcs={
+		definecolor
+	},
+	deletetexcs={},
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+\documentclass{article}
+	\usepackage{tikz}
+	\definecolor{Strong azure}{HTML}{0057b7}
+	\definecolor{Yellow}{HTML}{ffd700}
+\begin{document}
+	\begin{tikzpicture}
+		\fill [color = Strong azure] (0, 1) rectangle (3, 2);
+		\fill [color = Yellow] (0, 0) rectangle (3, 1);
+	\end{tikzpicture}
+\end{document}
+
+\end{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
