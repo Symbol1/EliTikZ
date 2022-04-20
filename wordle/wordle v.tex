@@ -5,58 +5,16 @@
 	\usepackage[margin = 1.25in]{geometry}
 	\usepackage{mathspec}
 		\setmathfont(Latin)[Uppercase = Regular]{ClearSans-Bold}
-	\usepackage{tikz, tikz-cd}
+	\usepackage{tikz-cd}
 		\definecolor{correct}{HTML}{6AAA64}
 		\definecolor{present}{HTML}{C9B457}
 		\definecolor{absent}{HTML}{787C7E}
 	\usepackage{listings}
 \begin{document}
 
-	\LARGE
-	\tikzset{
-		nodes = {minimum size = 2em, inner sep = 0, text = white},
-		2/.style = {fill = correct},
-		1/.style = {fill = present},
-		0/.style = {fill = absent},
-	}
-	\begin{tikzcd}[column sep = 0.16em, row sep = 0.16em, scale=2]
-		|[0]| A  &  |[0]| B  &  |[1]| E  &  |[0]| R  &  |[0]| S    \\
-		|[0]| C  &  |[0]| H  &  |[0]| O  &  |[0]| W  &  |[0]| K    \\
-		|[0]| D  &  |[0]| U  &  |[0]| M  &  |[0]| P  &  |[0]| Y    \\
-		|[0]| G  &  |[2]| L  &  |[2]| I  &  |[0]| N  &  |[1]| T    \\
-	\end{tikzcd}
-	\normalsize
 
 
-\fontspec{SourceCodePro-Regular}
-\lstset{
-	language=[latex]tex,tabsize=4,
-	moredelim=*[s][\itshape]{$}{$},
-	moredelim=*[s][\color{red!40!.}]{(}{)},
-	moredelim=*[s][\color{green!30!.}]{[}{]},
-	backgroundcolor=\color{blue!5},
-	commentstyle=\color{.!80}\itshape,
-	texcsstyle=*\color{blue!40!.},
-	moretexcs={
-		setmathfont,
-		tikzset,
-		definecolor,
-	},
-	deletetexcs={},
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% !TEX encoding = UTF-8 Unicode
-% !TEX program = xelatex
-\documentclass{article}
-	\usepackage{mathspec}
-		\setmathfont(Latin)[Uppercase = Regular]{ClearSans-Bold}
-	\usepackage{tikz, tikz-cd}
-		\definecolor{correct}{HTML}{6AAA64}
-		\definecolor{present}{HTML}{C9B457}
-		\definecolor{absent}{HTML}{787C7E}
-\begin{document}
+	\Huge
 	\tikzset{
 		nodes = {minimum size = 2em, inner sep = 0, text = white},
 		2/.style = {fill = correct},
@@ -69,9 +27,26 @@
 		|[0]| D  &  |[0]| U  &  |[0]| M  &  |[0]| P  &  |[0]| Y    \\
 		|[0]| G  &  |[2]| L  &  |[2]| I  &  |[0]| N  &  |[1]| T    \\
 	\end{tikzcd}
-\end{document}
+	\normalsize
 
-\end{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\fontspec{SourceCodePro-Regular}
+\lstset{
+	language=[latex]tex,tabsize=4,
+	moredelim=*[s][\itshape]{$}{$},
+	moredelim=*[s][\color{red!40!.}]{(}{)},
+	moredelim=*[s][\color{green!30!.}]{[}{]},
+	backgroundcolor=\color{blue!5},
+	commentstyle=\color{.!80}\itshape,
+	texcsstyle=*\color{blue!40!.},
+	moretexcs={
+		definecolor,
+		setmathfont,
+		tikzset,
+	},
+	deletetexcs={},
+}
+\lstinputlisting{wordle.tex}
 
 \end{document}

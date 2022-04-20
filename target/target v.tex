@@ -1,8 +1,8 @@
 % !TEX encoding = UTF-8 Unicode
-% !TEX TS-program = xelatex
+% !TEX program = xelatex
 
 \documentclass{article}
-\usepackage[cm]{fullpage}
+	\usepackage[margin = 1.2in]{geometry}
 	\usepackage{fontspec}
 	\usepackage{tikz}
 	\usepackage{listings}
@@ -27,39 +27,20 @@
 
 
 
-\lstset{language=[latex]tex,tabsize=4}
-\lstset{moretexcs={draw}}
 \fontspec{SourceCodePro-Regular}
-
-
-
-\begin{lstlisting}
-%%%%%%%%%%%%%%%%%%
-
-% !TEX encoding = UTF-8 Unicode
-% !TEX TS-program = pdflatex
-\documentclass{article}
-	\usepackage{tikz}
-\begin{document}
-	\begin{tikzpicture}
-		\fill [red] (0, 0) circle [radius = 3];
-		\fill [white] (0, 0) circle [radius = 2];
-		\fill [red] (0, 0) circle [radius = 1];
-		
-		\fill [purple, even odd rule] (7, 0)
-			circle [radius = 3] circle [radius = 2] circle [radius = 1];
-		
-		\draw [pink, line width = 1cm]
-			(0, 7) circle [radius = 0.5] circle [radius = 2.5];
-		
-		\draw [orange, line width = 1cm, double, double distance = 1cm]
-			(7, 7) circle [radius = 1.5];
-	\end{tikzpicture}
-\end{document}
-
-%%%%%%%%%%%%%%%%
-\end{lstlisting}
-
-
+\lstset{
+	language=[latex]tex,tabsize=4,
+	moredelim=*[s][\itshape]{$}{$},
+	moredelim=*[s][\color{red!40!.}]{(}{)},
+	moredelim=*[s][\color{green!30!.}]{[}{]},
+	backgroundcolor=\color{blue!5},
+	commentstyle=\color{.!80}\itshape,
+	texcsstyle=*\color{blue!40!.},
+	moretexcs={
+		draw,
+	},
+	deletetexcs={},
+}
+\lstinputlisting{target.tex}
 
 \end{document}

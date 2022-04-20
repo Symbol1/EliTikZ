@@ -1,16 +1,19 @@
 % !TEX encoding = UTF-8 Unicode
-% !TEX TS-program = xelatex
+% !TEX program = xelatex
 
 \documentclass{article}
 	\usepackage[margin=1.5in]{geometry}
-	\usepackage{fontspec}
+	\usepackage{fontspc}
 	\usepackage{tikz}
 	\usepackage{listings}
 \begin{document}
 
 
 
+	\definecolor{NTUred}{HTML}{661E2A}
 	\begin{tikzpicture}
+		\fill [color = NTUred]
+			(0, 0) rectangle +(1, 2);
 		\fill [color = {rgb, 1: red, .40; green, .12; blue, .16}]
 			(2, 0) rectangle +(1, 2);
 		\fill [color = {rgb, 255: red, 102; green, 30; blue, 42}]
@@ -30,30 +33,11 @@
 	backgroundcolor=\color{blue!5},
 	commentstyle=\color{.!80}\itshape,
 	texcsstyle=*\color{blue!40!.},
-	moretexcs={},
+	moretexcs={
+		definecolor
+	},
 	deletetexcs={},
 }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% !TEX encoding = UTF-8 Unicode
-% !TEX TS-program = pdflatex
-\documentclass{article}
-	\usepackage{tikz}
-\begin{document}
-	\begin{tikzpicture}
-		\fill [color = {rgb, 1: red, .40; green, .12; blue, .16}]
-			(2, 0) rectangle +(1, 2);
-		\fill [color = {rgb, 255: red, 102; green, 30; blue, 42}]
-			(4, 0) rectangle +(1, 2);
-		\fill [color = {rgb, "FF: red, "66; green, "1E; blue, "2A}]
-			(6, 0) rectangle +(1, 2);
-	\end{tikzpicture}
-\end{document}
-
-\end{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+\lstinputlisting{xcolor2.tex}
 
 \end{document}

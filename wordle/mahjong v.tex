@@ -5,13 +5,17 @@
 	\usepackage[margin = 2in]{geometry}
 	\usepackage{fontspec}
 	\usepackage{tikz}
-	\usepackage[height=2em]{mahjong}
+	\usepackage[height = 2em]{mahjong}
 	\usepackage{listings}
 \begin{document}
+
+
 
 	{\mahjong{19s 19p 19m 1234567z - X}}
 	\normalsize
 
+
+	
 \fontspec{SourceCodePro-Regular}
 \lstset{
 	language=[latex]tex,tabsize=4,
@@ -21,25 +25,9 @@
 	backgroundcolor=\color{blue!5},
 	commentstyle=\color{.!80}\itshape,
 	texcsstyle=*\color{blue!40!.},
-	moretexcs={
-		setmathfont,
-		tikzset,
-		definecolor,
-	},
+	moretexcs={},
 	deletetexcs={},
 }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% !TEX encoding = UTF-8 Unicode
-% !TEX program = pdflatex
-\documentclass{article}
-	\usepackage{mahjong}
-\begin{document}
-	\mahjong{19s 19p 19m 1234567z - X}
-\end{document}
-
-\end{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstinputlisting{mahjong.tex}
 
 \end{document}

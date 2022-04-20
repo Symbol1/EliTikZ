@@ -3,14 +3,18 @@
 
 \documentclass{article}
 	\usepackage[margin = 1.75in]{geometry}
+	\usepackage{fontspec}
 	\usepackage{tikz}
 	\usepackage{listings}
-	\usepackage{fontspec}
 \begin{document}
+
+
 
 	\includegraphics[width=\textwidth]{/usr/local/texlive/2021/%
 		texmf-dist/doc/generic/pstricks/images/tiger}
 
+
+		
 \fontspec{SourceCodePro-Regular}
 \lstset{
 	language=[latex]tex,tabsize=4,
@@ -25,19 +29,6 @@
 	},
 	deletetexcs={},
 }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% !TEX encoding = UTF-8 Unicode
-% !TEX program = pdflatex
-\documentclass{article}
-	\usepackage{graphicx}
-\begin{document}
-	\includegraphics[width=\textwidth]{/usr/local/texlive/%
-		2021/texmf-dist/doc/generic/pstricks/images/tiger}
-\end{document}
-
-\end{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstinputlisting{tiger.tex}
 
 \end{document}
