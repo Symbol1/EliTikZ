@@ -1,0 +1,50 @@
+
+
+
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = pdflatex
+\documentclass{article}
+	\usepackage{tikz}
+\begin{document}
+	\pgfmathsetseed{22420}
+	\def\randomword{%
+		\pgfmathsetmacro\ra{1 + rand}%
+		\pgfmathsetmacro\rb{1 + rand}%
+		\pgfmathsetmacro\rc{1 + rand}%
+		\pgfmathsetmacro\rem{(\ra + \rb + \rc) * 0.8}%
+		\rule[-0.2em]{\rem em}{1em}%
+	}
+	\def\randomsentence{%
+		\color{lightgray}
+		\pgfmathsetmacro\rword{8+rand*4}%
+		\foreach\wordcount in{1,...,\rword}{%
+			\randomword{}
+		}%
+		\randomword%
+	}
+	\pgfmathdeclarerandomlist{punct}{,,,,,...;:?!}%
+	\def\randompunct{%
+		\color{black}%
+		\pgfmathrandomitem\randompunct{punct}%
+		\randompunct%
+	}
+	\def\randomparagrph{%
+		\pgfmathsetmacro\rsentence{8+rand*4}%
+		\foreach\sentencecount in{1,...,\rsentence}{%
+			\randomsentence%
+			\randompunct{}
+		}%
+		\randomsentence\color{black}.
+	}
+	
+	\randomparagrph
+	
+	\randomparagrph
+	
+	\randomparagrph
+	
+	\randomparagrph
+	
+	\randomparagrph
+	
+\end{document}
