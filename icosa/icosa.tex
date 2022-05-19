@@ -5,15 +5,17 @@
 \begin{document}
 	\makeatletter\let\oldpointxyz\pgfpointxyz
 	\def\elitexyz#1#2#3{
-		\oldpointxyz{#1-\camerax}{#2-\cameray}{#3-\cameraz}%%% (x,y,z) is camera center
-		\pgfmathsetmacro\depth{\rcarot*\pgftemp@x+\rcbrot*\pgftemp@y+\rccrot*\pgftemp@z}
-		\pgfmathsetlength\pgf@x{\pgf@x*\cameras/(\camerad-\depth)}%%% camera scale and
-		\pgfmathsetlength\pgf@y{\pgf@y*\cameras/(\camerad-\depth)}%%% camera distance
+		\oldpointxyz{#1-\camerax}{#2-\cameray}{#3-\cameraz}%%% 相機對準(x,y,z)
+		\pgfmathsetmacro\depth{\rcarot*\pgftemp@x%
+		                      +\rcbrot*\pgftemp@y%
+							  +\rccrot*\pgftemp@z}
+		\pgfmathsetlength\pgf@x{\pgf@x*\cameras/(\camerad-\depth)}%%% s=放大率
+		\pgfmathsetlength\pgf@y{\pgf@y*\cameras/(\camerad-\depth)}%%% d = 距離
 	}\makeatother
 	\tdplotsetmaincoords{90-23}{120}%視角
 	\def\camerax{0}\def\cameray{0}\def\cameraz{0}
 	\def\camerad{25}\def\cameras{10}%相機中心、距離、倍率
-	\begin{tikzpicture}[tdplot_main_coords, line join = round, line cap = round]
+	\begin{tikzpicture}[tdplot_main_coords, line join=round, line cap=round]
 		\def\drawedges#1{
 			\def\pgfpointxyz##1##2##3{\elitexyz#1}
 			\foreach\s in{+,-}{
