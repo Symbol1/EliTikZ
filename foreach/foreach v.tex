@@ -17,29 +17,21 @@
 
 
 
-\lstset{language=[latex]tex,tabsize=4}
-\lstset{moretexcs={draw}}
-\fontspec{SourceCodePro-Regular}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% !TEX encoding = UTF-8 Unicode
-% !TEX TS-program = pdflatex
-\documentclass{article}
-	\usepackage{tikz}
-\begin{document}
-	\begin{tikzpicture}
-		\foreach \y in {1, 2, 3, 4, 5, 6}{
-			\node at (0, \y) {node at $y = \y$};
-		}
-	\end{tikzpicture}
-\end{document}
-
-\end{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\fontspec{SourceCodePro-Regular}
+	\lstset{
+		language=[latex]tex, tabsize=4,
+		moredelim=*[s][\itshape]{$}{$},
+		moredelim=*[s][\color{red!40!.}]{(}{)},
+		moredelim=*[s][\color{green!30!.}]{[}{]},
+		backgroundcolor=\color{blue!5},
+		commentstyle=\color{.!80}\itshape,
+		texcsstyle=*\color{blue!40!.},
+		moretexcs={
+			foreach, node
+		},
+		deletetexcs={},
+	}
+	\lstinputlisting{foreach.tex}
 
 
 

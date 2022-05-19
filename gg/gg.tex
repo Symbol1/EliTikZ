@@ -1,9 +1,8 @@
 % !TEX encoding = UTF-8 Unicode
-% !TEX TS-program = xelatex
+% !TEX program = xelatex
 \documentclass{article}
 	\usepackage{tikz}
 	\usepackage{fontspec}
-		\setmainfont{PMingLiU}
 \begin{document}
 	\begin{tikzpicture}[scale = 0.25]
 		\begin{scope} % Wafer
@@ -19,6 +18,7 @@
 			}
 		\end{scope}
 		\draw [red, line width = 2.5mm] (-11, -10) -- (11, -10) ;
-		\node [red] at (0, 0) [xscale = 11, yscale = 8] {tsmc} ;
+		\node [red] at (0, 0) [xscale = 11, yscale = 8]
+			{\fontspec{PMingLiU}tsmc} ;
 	\end{tikzpicture}
 \end{document}
