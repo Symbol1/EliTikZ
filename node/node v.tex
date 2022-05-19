@@ -1,13 +1,14 @@
 % !TEX encoding = UTF-8 Unicode
-% !TEX TS-program = xelatex
+% !TEX program = xelatex
 
 \documentclass{article}
-	\usepackage[cm]{fullpage}
+	\usepackage[margin = 1in]{geometry}
 	\usepackage{fontspec}
-	\setmainfont{SourceCodePro-Regular}
 	\usepackage{tikz}
 	\usepackage{listings}
 \begin{document}
+
+
 
 	\begin{tikzpicture}
 		\draw [lightgray] (-2, -2) grid (2, 2);
@@ -16,28 +17,22 @@
 		                         \node at (0, -1) {south};
 	\end{tikzpicture}
 
-\lstset{language=[latex]tex,tabsize=4}
-\lstset{moretexcs={draw}}
 
 
-
-%%%%%%%%%%%%%%%%%%
-\begin{lstlisting}
-% !TEX encoding = UTF-8 Unicode
-% !TEX TS-program = pdflatex
-\documentclass{article}
-	\usepackage{tikz}
-\begin{document}
-	\begin{tikzpicture}
-		\draw [lightgray] (-2, -2) grid (2, 2);
-		                     \node at(0,1){north};
-		\node at(-1,0){west};\node at(0,0){origin};\node at(1,0){east};
-		                     \node at(0,-1){south};
-	\end{tikzpicture}
-\end{document}
-\end{lstlisting}
-%%%%%%%%%%%%%%%%
-
-
+\fontspec{SourceCodePro-Regular}
+\lstset{
+	language=[latex]tex, tabsize=4,
+	moredelim=*[s][\itshape]{$}{$},
+	moredelim=*[s][\color{red!40!.}]{(}{)},
+	moredelim=*[s][\color{green!30!.}]{[}{]},
+	backgroundcolor=\color{blue!5},
+	commentstyle=\color{.!80}\itshape,
+	texcsstyle=*\color{blue!40!.},
+	moretexcs={
+		draw,node
+	},
+	deletetexcs={},
+}
+\lstinputlisting{node.tex}
 
 \end{document}
