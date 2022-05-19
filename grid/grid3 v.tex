@@ -2,7 +2,7 @@
 % !TEX TS-program = xelatex
 
 \documentclass{article}
-\usepackage[margin=1.5in]{geometry}
+\usepackage[margin=1.25in]{geometry}
 	\usepackage{fontspec}
 	\usepackage{tikz}
 	\usepackage{listings}
@@ -11,15 +11,13 @@
 
 
 	\begin{tikzpicture}
-		\fill (0, 0) rectangle (7, 7) ;
-		\foreach \z in {0, 1, 2, 3, 4, 5, 6, 7}{
-			\draw [white, line width = 2mm] (\z, 0) -- (\z, 7) ;
-			\draw [white, line width = 2mm] (0, \z) -- (7, \z) ;
-		}
+		\fill (0.1, 0.1) rectangle (9, 9) ;
+		\draw [white, line width = 9cm, dash pattern = on 2mm off 8mm]
+			(0, 4.5) -- (9, 4.5)  (4.5, 0) -- (4.5, 9);
 	\end{tikzpicture}
 
 
-
+	\vskip-1in
 	\fontspec{SourceCodePro-Regular}
 	\lstset{
 		language=[latex]tex, tabsize=4,
@@ -34,6 +32,6 @@
 		},
 		deletetexcs={},
 	}
-	\lstinputlisting{grid2.tex}
+	\lstinputlisting{grid3.tex}
 
 \end{document}

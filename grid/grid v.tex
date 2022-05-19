@@ -20,38 +20,20 @@
 
 
 
-\bigskip
-\lstset{
-	language=[latex]tex,tabsize=4,
-	moredelim=*[s][\itshape]{$}{$},
-	moredelim=*[s][\color{red!40!.}]{(}{)},
-	backgroundcolor=\color{blue!5},
-	commentstyle=\color{.!80}\itshape,
-	texcsstyle=*\color{blue!40!.},
-	moretexcs={foreach}
-}
-\fontspec{SourceCodePro-Regular}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% !TEX encoding = UTF-8 Unicode
-% !TEX TS-program = pdflatex
-\documentclass{article}
-	\usepackage{tikz}
-\begin{document}
-	\begin{tikzpicture}
-		\foreach \x in {1, 2, 3, 4, 5}{
-			\foreach \y in {1, 2, 3, 4, 5}{
-				\fill (\x, \y) rectangle (\x + 0.8, \y + 0.8) ;
-			}
-		}
-	\end{tikzpicture}
-\end{document}
-
-\end{lstlisting}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+	\fontspec{SourceCodePro-Regular}
+	\lstset{
+		language=[latex]tex, tabsize=4,
+		moredelim=*[s][\itshape]{$}{$},
+		moredelim=*[s][\color{red!40!.}]{(}{)},
+		moredelim=*[s][\color{green!30!.}]{[}{]},
+		backgroundcolor=\color{blue!5},
+		commentstyle=\color{.!80}\itshape,
+		texcsstyle=*\color{blue!40!.},
+		moretexcs={
+			draw
+		},
+		deletetexcs={},
+	}
+	\lstinputlisting{grid.tex}
 
 \end{document}
