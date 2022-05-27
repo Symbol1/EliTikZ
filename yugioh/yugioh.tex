@@ -1,0 +1,28 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = pdflatex
+\documentclass[tikz]{standalone}
+\usetikzlibrary{perspective}
+\usepackage{lipsum}
+\begin{document}
+	\foreach \angle in {0, 5, ..., 89.99} {
+		\begin{tikzpicture}
+			\fill [white] (-4,-4) rectangle (4,2);
+			\path [overlay, black!20] (-4,2) node
+				[below right, text width=9cm, align=left]
+				{\lipsum[1]};
+			\begin{scope} [3d view={\angle}{12}, scale=2]
+				\path
+					(1,1,0) coordinate (A)
+					(1,-1,0) coordinate (B)
+					(-1,-1,0) coordinate (C)
+					(-1,1,0) coordinate (D)
+					(0,0,-1.5) coordinate (X)
+				;
+				\draw 
+					(A) -- (B) -- (C) -- (D) -- (A)
+					(A) -- (X) (B) -- (X) (C) -- (X) (D) -- (X)
+				;
+			\end{scope}
+		\end{tikzpicture}
+	}
+\end{document}
