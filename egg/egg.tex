@@ -1,0 +1,23 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = pdflatex
+\documentclass[tikz]{standalone}
+\pgfdeclarefunctionalshading{dragon ball festival}
+	{\pgfpoint{0bp}{0bp}}{\pgfpoint{50bp}{50bp}}{}{%  X:[0,50]  Y:[0,50]
+	50 div exch 50 div exch                        %  y:[0,1]  x:[0,1]
+	.5 sub 2.2 mul exch .5 sub 2.2 mul             %  recenter and rescale
+	1 index 5 div 1.3 add mul                      %  u:=x  v:=y(1.3+x/5)
+	dup dup mul 2 index dup mul add                %  u  v  r=radial
+	1 ge {pop pop 0.5} {  %  https://tex.stackexchange.com/a/75994
+		dup dup mul 2 index dup mul add 1 sub      %  w:=w(u,v)^2
+		.3 dup mul .4 dup mul add 1 sub            %  w':=w(.3,.4)^2
+		mul sqrt                                   %  ww'
+		exch .3 mul add                            %  += vv'
+		exch .4 mul add                            %  += uu'
+		dup abs add 2 div                          %  keep if ≥ 0 otherwise 0
+	} ifelse
+}
+\begin{document}
+	\begin{tikzpicture}
+		\shade [shading=dragon ball festival] (0,0) rectangle (4in,4in);
+	\end{tikzpicture}
+\end{document}
