@@ -1,0 +1,28 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = pdflatex
+\documentclass[tikz]{standalone}
+	\usetikzlibrary{lindenmayersystems}
+\begin{document}
+	\def\pgflsystemleftarc{%
+		\pgfpatharc{210}{330}{\pgflsystemcurrentstep/1.73205}%
+		\pgftransformxshift{+\pgflsystemcurrentstep}%
+	}
+	\def\pgflsystemrightarc{%
+		\pgfpatharc{150}{30}{+\pgflsystemcurrentstep/1.73205}%
+		\pgftransformxshift{+\pgflsystemcurrentstep}%
+	}
+	\pgfdeclarelindenmayersystem{Gosper}{
+		\symbol{L}{\pgflsystemleftarc} % the car turns left
+		\symbol{R}{\pgflsystemrightarc} % the car turns right
+		\rule{L -> R-RL+LRL+L-}
+		\rule{R -> +R-RLR-RL+L}
+	}
+	% inspired by
+	% https://szimmetria-airtemmizs.tumblr.com/image/170984171333
+	% http://robertfathauer.com/FractalCurves1.html
+	\begin{tikzpicture}
+		\draw lindenmayer system [l-system={ 
+			Gosper, axiom=L+L+L, order=3, step=50pt, angle=120
+		}];
+	\end{tikzpicture}
+\end{document}
