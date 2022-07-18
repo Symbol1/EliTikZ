@@ -3,7 +3,7 @@
 \documentclass{article}
 	\usepackage{tkz-euclide}
 \begin{document}
-	\begin{tikzpicture}
+	$$\begin{tikzpicture}
 		\def\ya{4}
 		\def\xb{1.5}
 		\def\xc{-4}
@@ -50,8 +50,10 @@
 		\tkzDrawSegment[dotted](D,D') \tkzMarkRightAngle(D,D',B)
 		\tkzDrawSegment[dotted](E,E') \tkzMarkRightAngle(E,E',C)
 		\tkzLabelAngle[pos=.5](D,B,D'){$\alpha$}
-		\tkzLabelAngle[pos=.5](E,C,E'){$\alpha$}
+		\tkzLabelAngle[pos=.5](E',C,E){$\alpha$}
 		\tkzDrawSegment(B,D') \tkzLabelSegments(B,D'){$bc\cos\alpha$}
 		\tkzDrawSegment(C,E') \tkzLabelSegments(E',C){$bc\cos\alpha$}
-	\end{tikzpicture}
+	\end{tikzpicture}$$
+
+	$$ a^2 = b^2 + c^2 - 2bc\cos\alpha $$
 \end{document}
