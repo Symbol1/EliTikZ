@@ -1,0 +1,66 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = lualatex
+\documentclass{article}
+	\usepackage[margin=1in]{geometry}
+	\usepackage{tikz}
+		\usepackage{tikz-3dplot}
+\begin{document}
+	\centering
+	\makeatletter
+	\let\orthogonalpointxyz\pgfpointxyz
+	\def\pgfpointxyz#1#2#3{
+		\orthogonalpointxyz{#1-\camerax}{#2-\cameray}{#3-\cameraz}
+		\pgfmathsetmacro\depth{\rcarot*\pgftemp@x+\rcbrot*\pgftemp@y+\rccrot*\pgftemp@z}
+		\pgfmathsetlength\pgf@x{\pgf@x*\cameras/(\camerad-\depth)*\camerat}
+		\pgfmathsetlength\pgf@y{\pgf@y*\cameras/(\camerad-\depth)*\camerat}
+	}
+	\makeatother
+	\tdplotsetmaincoords{65}{105}
+	\begin{tikzpicture}[tdplot_main_coords, line cap=round, line join=round]
+		\def\camerax{40}% 照片中心 x 座標
+		\def\cameray{40}% 照片中心 y 座標
+		\def\cameraz{40}% 照片中心 z 座標
+		\def\cameras{8}% 相機倍率（先乘）
+		\def\camerad{60}% 相機距離
+		\def\camerat{4}% 相機倍率2（後乘）
+		\def\Cube (#1,#2,#3) ;{
+			\pgfmathsetmacro\1{#1+1}
+			\pgfmathsetmacro\2{#2+1}
+			\pgfmathsetmacro\3{#3+1}
+			\path
+				%        B -- A
+				%       /    / \
+				%      C -- G   F
+				%       \    \ /
+				%        D -- E
+				(#1,\2,\3)coordinate(A)
+				(#1,#2,\3)coordinate(B)
+				(\1,#2,\3)coordinate(C)
+				(\1,#2,#3)coordinate(D)
+				(\1,\2,#3)coordinate(E)
+				(#1,\2,#3)coordinate(F)
+				(\1,\2,\3)coordinate(G)
+			;
+			\colorlet{mix}{rgb,1: red\X,1; green\Y,1; blue\Z,1}
+			\fill[color=mix!90!black](G)--(A)--(B)--(C)--cycle;
+			\fill[color=mix         ](G)--(C)--(D)--(E)--cycle;
+			\fill[color=mix!80!black](G)--(E)--(F)--(A)--cycle;
+			\draw(G)--(A)--(B)--(C)--(D)--(E)--(F)--(A)(C)--(G)--(E);
+		}
+		\globalcolorstrue
+		\foreach \C in {0,2, 6,8,  18,20, 24,26}{
+			\colorlet{red\C}  {rgb,27.1: red,1;   red,\C}
+			\colorlet{green\C}{rgb,27.1: green,1; green,\C}
+			\colorlet{blue\C} {rgb,27.1: blue,1;  blue,\C}
+		}
+		\foreach \X in {0,2, 6,8,  18,20, 24,26} {
+			\foreach \Y in {0,2, 6,8,  18,20, 24,26} {
+				\foreach \Z in {0,2, 6,8,  18,20, 24,26} {
+					\Cube (\X,\Y,\Z) ;
+				}
+			}
+		}
+	\end{tikzpicture}
+
+	\scalebox{4}{$1{,}000{,}000{,}000_2$ Likes!}
+\end{document}
