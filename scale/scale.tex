@@ -1,0 +1,104 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = lualatex
+\documentclass[tikz,border=1cm]{standalone}
+	\usepackage{emoji}
+		\setemojifont{Apple Color Emoji}
+		%\setemojifont{NotoEmoji-Regular}
+\begin{document}
+	\begin{tikzpicture}[line cap=round]
+		\draw (0,22) -- (0,-15);
+		\foreach \m in {1, ..., 9}{
+			\pgfmathsetmacro\logm{log10(\m)}
+			\draw [black!\m0!black] foreach \y in {-15, ..., 21}{
+				(-.1/\m, \logm+\y) -- +(.2/\m,0)
+			};
+		};
+		\def\sizepicttext#1#2#3{
+			% #1 is the size; use meter and scientific notation.
+			% #2 is the emoji.
+			% #3 is the text. (Texts are placed ``outside'')
+			\readlabel#1f{#2}{#3}
+		}
+		\def\readlabel#1e#2f#3#4{
+			\pgfmathsetmacro\logxsize{log10(#1)+#2}
+			\xdef\logxsize{\logxsize}
+			\printlabel{\logxsize}{#3}{#4}
+		}
+		\def\printlabel#1#2#3{
+			% #1 is the size; use meter that was ``logged''.
+			% #2 is the object; can use emoji or text.
+			\ifnum\phase=0 \draw (-2*\offset,#1) node[left](X){#3 #2} (X) -- (0,#1); \fi
+			\ifnum\phase=1 \draw (2*\offset,#1) node[right](X){#2 #3} (X) -- (0,#1); \fi
+			\pgfmathtruncatemacro\phase{mod(\phase+1,2)}
+			\pgfmathsetmacro\offset{mod(\offset+.61803,2)}
+		}
+		\def\phase{0}
+		\def\offset{.5}
+		\def\TikZ{Ti\emph kZ}
+		\def\EMOJI#1{\raisebox{-.7em}{\scalebox{2}{\emoji{#1}}}}
+		\sizepicttext{1.2e21}{\EMOJI{milky-way}}{Milky way diameter}
+		\sizepicttext{1e18}{\EMOJI{rose}}{Rosette Nebula size}
+		\sizepicttext{5e16}{\EMOJI{crab}}{Crab Nebula size}
+		\sizepicttext{4e16}{\EMOJI{sun}$\leftrightarrow$\EMOJI{star}}{nearest star distance}
+		\sizepicttext{2e16}{\EMOJI{ant}}{Ant Nebula size}
+		\sizepicttext{9.46e15}{\EMOJI{flashlight}\EMOJI{firecracker}}{one light-year}
+		% \sizepicttext{9.46e15}{\EMOJI{ring}}{Ring Nebula size}
+		\sizepicttext{3e15}{\EMOJI{hourglass}}{hourglass Nebula size}
+		\sizepicttext{3.8e13}{\EMOJI{hole}}{black hole Messier 87* size}
+		\sizepicttext{2.4e13}{\EMOJI{earth-asia}$\leftrightarrow$\EMOJI{satellite}}{Voyager 1 distance}
+		\sizepicttext{3e12}{\EMOJI{star}}{Largest star known}
+		\sizepicttext{1.5e11}{\EMOJI{earth-asia}$\leftrightarrow$\EMOJI{sun}}{Sun distance}
+		\sizepicttext{1.5e9}{\EMOJI{telescope}}{James-Webb distance diameter}
+		\sizepicttext{1.4e9}{\EMOJI{sun}}{Sun diameter}
+		\sizepicttext{3.9e8}{\EMOJI{earth-asia}$\leftrightarrow$\EMOJI{moon}}{Moon distance}
+		\sizepicttext{1.2e8}{\EMOJI{ringed-planet}}{Saturn diameter}
+		% \sizepicttext{1e8}{\EMOJI{flashlight}\EMOJI{2nd-place-medal}}{one light-second}
+		\sizepicttext{6.4e7}{\EMOJI{pick}\EMOJI{world-map}}{Minecraft world map size}
+		\sizepicttext{1.27e7}{\EMOJI{earth-asia}}{Earth diameter}
+		\sizepicttext{3.5e6}{\EMOJI{moon}}{Moon diameter}
+		% \sizepicttext{2.6e6}{\EMOJI{coral}{Great Barrier Reef}
+		\sizepicttext{1.6e6}{\EMOJI{rocket}}{Yun Feng missile range}
+		\sizepicttext{3.95e5}{\EMOJI{taiwan}}{Formosa length}
+		\sizepicttext{2.5e5}{\EMOJI{cyclone}}{Typhoon Morakot radius}
+		\sizepicttext{8e4}{\EMOJI{broken-heart}}{Chelungpu Fault length}
+		\sizepicttext{6.7e4}{\EMOJI{mushroom}}{Tsar Bomba mushroom cloud height}
+		\sizepicttext{2e4}{\EMOJI{volcano}}{Olympus Mons (Mars) height}
+		\sizepicttext{1e4}{\EMOJI{comet}}{``asteroid that kills dinosaurs''}
+		\sizepicttext{4.2e3}{\EMOJI{running}}{Marathon}
+		\sizepicttext{4e3}{\EMOJI{mechanical-arm}}{LIGO arm length}
+		\sizepicttext{1e3}{\EMOJI{national-park}}{Taroko Gorge depth}
+		\sizepicttext{3.3e2}{\EMOJI{tokyo-tower}}{Tokyo Tower height}
+		\sizepicttext{9.3e1}{\EMOJI{statue-of-liberty}}{Statue of Liberty height}
+		\sizepicttext{8.4e1}{\EMOJI{airplane}}{Antonov An-225 Mriya length}
+		% \sizepicttext{2.8e1}{\EMOJI{spouting-whale}}{52-hertz whale wavelength}
+		\sizepicttext{2.3e1}{\EMOJI{lotus-position}}{PaGua Buddha height}
+		\sizepicttext{1.2e1}{\EMOJI{kaaba}}{Kaaba size}
+		\sizepicttext{5.758e0}{\EMOJI{keyboard}}{\TeX's max length}
+		\sizepicttext{5.08e0}{\EMOJI{page-with-curl}}{PDF max page size}
+		\sizepicttext{2e0}{\EMOJI{person-standing}$\leftrightarrow$\EMOJI{person-standing}}{social distance}
+		\sizepicttext{7.6e-1}{\EMOJI{seat}}{commercial flight leg space}
+		\sizepicttext{3e-1}{\EMOJI{straight-ruler}}{30cm}e
+		\sizepicttext{1.5e-1}{\EMOJI{dollar-banknote}}{United States one-dollar bill length}
+		\sizepicttext{2.5e-2}{\EMOJI{pushpin}}{pushpin length}
+		\sizepicttext{1.6e-2}{\EMOJI{game-die}}{dice}
+		% \sizepicttext{1.5e-2}{\EMOJI{paperclip}}{binder clip width}
+		\sizepicttext{1e-2}{\EMOJI{lady-beetle}}{seven-spot ladybird}
+		\sizepicttext{3.8e-4}{\EMOJI{pen}}{0.38mm as in pen}
+		\sizepicttext{1.4e-4}{\EMOJI{keyboard}}{\TeX/\TikZ's default line width}
+		\sizepicttext{1e-4}{\EMOJI{person-getting-haircut}}{human hair width}
+		\sizepicttext{8e-6}{\EMOJI{drop-of-blood}}{red blood cell diameter}
+		\sizepicttext{4e-6}{\EMOJI{factory}}{mitochondrion}
+		\sizepicttext{2e-6}{\EMOJI{microbe}}{E. coli length}
+		\sizepicttext{5.3e-7}{\EMOJI{traffic-light}}{green light wavelength}
+		\sizepicttext{1e-7}{\EMOJI{crown}}{SARS-CoV-2}
+		\sizepicttext{4e-8}{\EMOJI{shinto-shrine}}{latest transister gate pitch}
+		\sizepicttext{5.363e-9}{\EMOJI{keyboard}}{\TeX's Planck length}
+		\sizepicttext{2e-9}{\EMOJI{dna}}{DNA diameter}
+		\sizepicttext{1e-9}{\EMOJI{soccer}}{Buckyballs}
+		% \sizepicttext{1e-9}{\EMOJI{atom-symbol}}{nano meter}
+		\sizepicttext{3.4e-10}{\EMOJI{pencil}}{graphene thickness}
+		\sizepicttext{2.8e-10}{\EMOJI{droplet}}{water molecule}
+		\sizepicttext{1.6e-15}{\EMOJI{red-circle}}{proton and neutron}
+		\sizepicttext{1e-15}{\EMOJI{radioactive}}{Nuclear fusion}
+	\end{tikzpicture}
+\end{document}
