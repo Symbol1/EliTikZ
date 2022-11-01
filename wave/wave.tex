@@ -1,0 +1,32 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = pdflatex
+\documentclass{article}
+	\usepackage{geometry}
+	\usepackage{tikz}
+	\usetikzlibrary{decorations}
+\begin{document}
+	\pgfdeclaredecoration{Koch wave}{init}
+	{%
+		\state{init}[width=\pgfdecoratedinputsegmentremainingdistance]
+		{
+			\pgfpathlineto{\pgfpoint
+				{.3333\pgfdecoratedinputsegmentremainingdistance}
+				{0pt}}
+			\pgfpathlineto{\pgfpoint
+				{.8333\pgfdecoratedinputsegmentremainingdistance}
+				{0.2886751347\pgfdecoratedinputsegmentremainingdistance}}
+			\pgfpathlineto{\pgfpoint
+				{.6666\pgfdecoratedinputsegmentremainingdistance}
+				{0pt}}
+			\pgfpathlineto{\pgfpoint
+				{\pgfdecoratedinputsegmentremainingdistance}
+				{0pt}}
+		}%
+	}%
+	\begin{tikzpicture}[decoration=Koch wave]
+		\draw decorate{ (0,0) -- (4in,0) };
+		\draw decorate{ decorate{ (0,-2in) -- +(4in,0) }};
+		\draw decorate{ decorate{ decorate{ (0,-4in) -- +(4in,0) }}};
+		\draw decorate{ decorate{ decorate{ decorate{ (0,-6in) -- +(4in,0) }}}};
+	\end{tikzpicture}
+\end{document}
