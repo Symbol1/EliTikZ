@@ -1,0 +1,49 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = pdflatex
+
+
+
+\documentclass[border=1cm, tikz]{standalone}
+
+\def\lightx@{.3}
+\def\lighty@{-.5}
+\pgfdeclarefunctionalshading[sphere-color]{sphere}
+	{\pgfpoint{-25bp}{-25bp}}{\pgfpoint{25bp}{25bp}}
+	{\pgfshadecolortorgb{sphere-color}{\spherecolor}}{
+	25 div exch 25 div exch 2 copy 
+	dup mul exch dup mul add 1 sub
+	\lightx@ dup mul \lighty@ dup mul add 1 sub
+	mul abs sqrt
+	exch \lightx@ mul add
+	exch \lighty@ mul add
+	.6 mul .3 add
+	dup abs add 2 div
+	\spherecolor
+	3 index mul 3 1 roll
+	3 index mul 3 1 roll
+	3 index mul 3 1 roll
+}% https://tex.stackexchange.com/questions/54193/how-to-draw-a-shaded-sphere/75994#75994
+
+\begin{document}
+\begin{tikzpicture}
+	\begin{scope}% inside black
+		\fill (0,0) circle [radius=4.9];
+	\end{scope}
+	\begin{scope}% upper red
+		\clip (-5,0.3) -- (-5,5) -- (5,5) --(5,0.3)
+			arc[start angle=0, end angle=-180, x radius=5cm, y radius=1.5cm];
+		\colorlet{sphere-color}{red}
+		\shade[shading=sphere] (0,0) circle[radius=5cm];
+	\end{scope}
+	\begin{scope}% lower white
+		\clip (-5,-0.3) -- (-5,-5) -- (5,-5) --(5,-0.3)
+			arc[start angle=0, end angle=-180, x radius=5cm, y radius=1.5cm];
+		\colorlet{sphere-color}{white}
+		\shade[shading=sphere] (0,0) circle[radius=5cm];
+	\end{scope}
+	\begin{scope}% button
+		\fill[black] (-2,-1.4) circle [x radius=1.5cm, y radius=1.2cm, rotate=-45];
+		\fill[white] (-2,-1.4) circle [x radius=1cm, y radius=0.8cm, rotate=-45];
+	\end{scope}
+\end{tikzpicture}
+\end{document}

@@ -1,7 +1,6 @@
 % !TEX encoding = UTF-8 Unicode
 % !TEX program = pdflatex
 \documentclass{article}
-	\usepackage{geometry}
 	\usepackage{tikz}
 	\usetikzlibrary{decorations}
 \begin{document}
@@ -28,5 +27,10 @@
 		\draw decorate{ decorate{ (0,-2in) -- +(4in,0) }};
 		\draw decorate{ decorate{ decorate{ (0,-4in) -- +(4in,0) }}};
 		\draw decorate{ decorate{ decorate{ decorate{ (0,-6in) -- +(4in,0) }}}};
+	\end{tikzpicture}
+
+	\begin{tikzpicture}[decoration=Koch wave]
+		\draw decorate{ decorate{ decorate{ decorate{
+			decorate{ decorate{ decorate{(0,0) -- +(4in,0) }}}}}}};
 	\end{tikzpicture}
 \end{document}
