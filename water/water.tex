@@ -1,0 +1,47 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX program = lualatex
+\documentclass[landscape]{article}
+	\usepackage[a3paper]{geometry}
+	\usepackage{tikz}
+	\usepackage{fontspec}
+	\setmainfont{Noto Sans TC}
+\begin{document}
+	\fontsize{36pt}{36pt}\selectfont
+	\begin{tikzpicture}
+		\path [save path=\water]
+			(-3, 3) to [bend right=15] (3, 3) -- (3, -1) -- (-3, -1) -- cycle;
+		\path [save path=\glass] (-1.5, 5) -- (1.5, 5) -- (1, 0) -- (-1, 0) -- cycle;
+		\begin{scope}	
+			\draw
+				(0, 5) node [above] {樂觀の人}
+				(0, 0) node [below] {這是半杯水}
+			;
+			\draw [use path=\glass, line width=2pt];
+			\clip [use path=\glass];
+			\fill [use path=\water, blue!70!green!80!white];
+			\draw [use path=\glass, line width=2pt];
+		\end{scope}
+		\begin{scope} [transform canvas = {shift={(10,0)}}]
+			\draw
+				(0, 5) node [above] {悲觀の人}
+				(0, 0) node [below] {這是半杯空氣}
+			;
+			\draw [use path=\glass, line width=2pt];
+			\clip [use path=\glass];
+			\fill [use path=\water, blue!70!green!80!white];
+			\draw [use path=\glass, line width=2pt];
+		\end{scope}
+		\begin{scope} [transform canvas = {shift={(20,0)}}]
+			\draw
+				(0, 5) node [above] {台灣の人}
+				(0, 0) node [below] {是不是還在晃？}
+			;
+			\draw [use path=\glass, line width=2pt];
+			\clip [use path=\glass];
+			\fill [blue!70!green!80!white]
+				plot [domain=-3:3, samples=100] (\x, {2.6 + sin(500 * \x)/20})
+				-- (3, -1) -- (-3, -1) -- cycle;
+			\draw [use path=\glass, line width=2pt];
+		\end{scope}
+	\end{tikzpicture}
+\end{document}
